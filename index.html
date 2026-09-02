@@ -694,7 +694,7 @@
   function panelMarkup(stage){
     var trueStatus = effectiveStatus(stage.key);
     var adminPreviewing = isAdminUrl && !PREVIEW_MODE;
-    var status = adminPreviewing ? 'open' : trueStatus;
+    var status = (adminPreviewing && trueStatus !== 'locked') ? 'open' : trueStatus;
     var cardClass = "card" + (stage.spotlight ? " spotlight" : "");
     var bodyHtml = "";
     var adminNote = (adminPreviewing && trueStatus !== 'open')
