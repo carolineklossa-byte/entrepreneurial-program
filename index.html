@@ -755,7 +755,7 @@
 
   function template(){
     var activeStage = STAGES.filter(function(s){ return s.key === ACTIVE_TAB; })[0] || STAGES[0];
-    var showSteps = !!CURRENT_CANDIDATE || isAdminUrl;
+    var showSteps = !!CURRENT_CANDIDATE || (isAdminUrl && !PREVIEW_MODE);
     var stepsBlock = showSteps
       ? tabsMarkup() + '<div class="panel-wrap">' + panelMarkup(activeStage) + '</div>'
       : '<p class="steps-locked-hint">Renseignez votre prénom et votre nom ci-dessus pour accéder aux étapes.</p>';
