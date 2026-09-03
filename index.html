@@ -230,6 +230,14 @@
   .answer-instructions{margin-top:24px;border-top:1px solid #3A342F;padding-top:22px;}
   .answer-instructions p{font-size:15px;line-height:1.6;color:var(--white);margin:0;}
   .answer-instructions strong{color:var(--cherry-light);}
+  .answer-label{display:block;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:800;color:var(--cherry-light);margin-bottom:8px;}
+  .answer-textarea{width:100%;min-height:170px;background:#1D1815;border:1px solid #3A342F;color:#fff;font-family:inherit;font-size:14.5px;line-height:1.6;padding:12px 14px;resize:vertical;}
+  .answer-textarea::placeholder{color:#7A7168;}
+  .answer-textarea:focus{outline:2px solid var(--cherry-light);outline-offset:2px;}
+  .answer-row{display:flex;align-items:center;gap:14px;margin-top:12px;flex-wrap:wrap;}
+  .answer-submit{font-family:inherit;font-weight:800;font-size:13px;letter-spacing:0.03em;background:var(--cherry);color:var(--ink);border:none;padding:11px 20px;cursor:pointer;}
+  .answer-submit:hover{background:var(--cherry-light);}
+  .answer-status{font-size:13px;color:var(--cherry-light);font-weight:700;}
 
   /* même consigne d'envoi par e-mail, mais sur une carte claire (Round 2/3/4/pitch) :
      l'ancienne classe .answer-instructions est pensée pour la carte sombre du Round 1
@@ -533,11 +541,33 @@
 
   var ADMIN_KEY = 'zoiEpAdminUnlocked';
   var SHEET_LOG_URL = 'https://script.google.com/macros/s/AKfycbzYDvTF7jbIXfMoKzpFhxTmRaZz6THoTLIDUWhIK-6QlTs3kJWZdScexM91xM-5Hc50/exec';
+  var R1_DRAFT = '';
+  var R1_STATUS_MSG = '';
+  function escapeHtml(s){
+    return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
   function logCandidateIdentification(first, last){
     if (!SHEET_LOG_URL) return;
     try{
       var url = SHEET_LOG_URL + '?first=' + encodeURIComponent(first) + '&last=' + encodeURIComponent(last);
       fetch(url, { method: 'GET', mode: 'no-cors' });
+    }catch(e){}
+  }
+  function submitAnswer(round, text){
+    if (!SHEET_LOG_URL) return;
+    try{
+      fetch(SHEET_LOG_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          type: 'answer',
+          first: (CURRENT_CANDIDATE && CURRENT_CANDIDATE.first) || '',
+          last: (CURRENT_CANDIDATE && CURRENT_CANDIDATE.last) || '',
+          round: round,
+          answer: text
+        })
+      });
     }catch(e){}
   }
   var ADMIN_CODE = 'zoi2026';
@@ -728,7 +758,12 @@
           '<div class="body">'+stage.support.map(function(p){return '<p>'+p+'</p>';}).join('')+'</div>' +
           '<div class="callout on-dark">'+stage.callout+'</div>' +
           '<div class="answer-instructions">' +
-            '<p>Répondez directement à la suite du mail que vous avez reçu confirmant la réception de votre candidature, en y indiquant votre réponse à cette question.</p>' +
+            '<label for="r1-answer-input" class="answer-label">Votre réponse</label>' +
+            '<textarea id="r1-answer-input" class="answer-textarea" rows="9" placeholder="Écrivez votre réponse ici…">'+escapeHtml(R1_DRAFT)+'</textarea>' +
+            '<div class="answer-row">' +
+              '<button type="button" id="r1-answer-submit" class="answer-submit">Envoyer ma réponse</button>' +
+              '<span class="answer-status" id="r1-answer-status">'+(R1_STATUS_MSG||'')+'</span>' +
+            '</div>' +
           '</div>';
       }
     } else {
@@ -855,7 +890,27 @@
     if (idReset){
       idReset.addEventListener('click', function(){
         CURRENT_CANDIDATE = null;
+        R1_DRAFT = '';
+        R1_STATUS_MSG = '';
         try{ localStorage.removeItem('zoiEpCandidate'); }catch(e){}
+        render();
+      });
+    }
+
+    var r1Input = document.getElementById('r1-answer-input');
+    if (r1Input){
+      r1Input.addEventListener('input', function(){
+        R1_DRAFT = r1Input.value;
+      });
+    }
+    var r1Submit = document.getElementById('r1-answer-submit');
+    if (r1Submit){
+      r1Submit.addEventListener('click', function(){
+        var text = (document.getElementById('r1-answer-input').value || '').trim();
+        if (!text) return;
+        submitAnswer('Round 1', text);
+        R1_DRAFT = '';
+        R1_STATUS_MSG = '✓ Réponse envoyée, merci !';
         render();
       });
     }
