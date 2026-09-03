@@ -580,7 +580,8 @@
   function daysBetween(a,b){ return Math.round((b-a)/86400000); }
 
   function progressMarkup(){
-    var start = STAGE_DATES.r1, end = STAGE_DATES.pitch, today = new Date();
+    var start = STAGE_DATES.r1, end = STAGE_DATES.pitch;
+    var today = new Date(); today.setHours(0,0,0,0);
     var frac = Math.max(0, Math.min(1, (today-start)/(end-start)));
     var left = daysBetween(today, end);
     var label;
