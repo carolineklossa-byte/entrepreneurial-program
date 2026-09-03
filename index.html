@@ -155,6 +155,7 @@
   .card .dates{font-size:12.5px;color:var(--cherry-dark);font-weight:600;margin-bottom:16px;font-variant-numeric:tabular-nums;}
   .card .body p{font-size:15px;line-height:1.65;color:var(--ink);margin:0 0 14px;}
   .card .body p:last-child{margin-bottom:0;}
+  .card .locked-desc{font-size:14.5px;line-height:1.6;color:var(--ink);margin:0 0 14px;}
   .card .locked-note{font-size:14px;line-height:1.6;color:var(--grey-mid);font-style:italic;margin:0;}
   .callout{background:var(--cherry-tint);border-left:3px solid var(--cherry);padding:14px 16px;font-size:13.5px;line-height:1.55;color:var(--cherry-dark);font-weight:600;margin-top:16px;}
   .callout.dark{background:var(--black);color:var(--white);border-left-color:var(--cherry);}
@@ -476,6 +477,7 @@
           '</ul></div>' +
         '</div>'
       ),
+      lockedDesc:"Une problématique réelle de Zoī, à résoudre à l’aide de l’IA, jusqu’à un prototype fonctionnel. Vous finaliserez et présenterez votre solution le jour du Pitch Day.",
       lockedNote:"Cette étape se débloque dès que vous passez à l’étape suivante du process. Vous serez prévenu·e par e-mail dès qu’elle s’ouvre pour vous."
     },
     { key:"r3", num:"03", label:"Round 3", title:"Marketing Pitch",
@@ -485,16 +487,19 @@
         "C’est ce pitch qui départage les candidats et détermine les 15 finalistes qui accèdent au Round 4."
       ],
       emailNote:"<p>Envoyez votre réponse par e-mail à <strong>caroline.klossa@zoi.com</strong>, avec pour objet votre prénom, votre nom et « Round 3 Marketing Pitch ».</p>",
+      lockedDesc:"L’e-mail marketing de votre solution, celui que vous nous enverriez pour nous la vendre. C’est ce pitch qui départage les candidats et détermine les 15 finalistes.",
       lockedNote:"Cette étape est à rendre avant le 15 septembre 2026."
     },
     { key:"r4", num:"04", label:"Round 4", title:"La Sélection Finale",
       dates:"Annonce&nbsp;: 16 septembre 2026",
       open:["Nous annoncerons les finalistes invités au Pitch Day. Quinze places, au maximum."],
+      lockedDesc:"Nous annoncerons les finalistes qui seront invités au Pitch Day. Nous avons jusqu’à 15 places.",
       lockedNote:"Les finalistes seront annoncés le 16 septembre 2026."
     },
     { key:"pitch", num:"05", label:"Jour J", title:"Pitch Day",
       dates:"18 septembre 2026",
       open:["Live demo de votre prototype IA en personne, visite privée de Zoī, entretiens avec l’équipe."],
+      lockedDesc:"Live demo de votre prototype IA en personne, visite privée de Zoī, entretiens avec l’équipe. Réservez cette date aujourd’hui.",
       lockedNote:"Réservé aux finalistes annoncés le 16 septembre 2026.",
       calloutClass:"callout dark",
       callout:"Réservez cette date dès aujourd’hui.",
@@ -720,7 +725,9 @@
       }
     } else {
       if (status === "locked"){
-        bodyHtml = adminNote + '<p class="locked-note">'+LOCK_ICON+(stage.lockedNote||'Cette étape n’est pas encore ouverte.')+'</p>';
+        bodyHtml = adminNote +
+          (stage.lockedDesc ? '<p class="locked-desc">'+stage.lockedDesc+'</p>' : '') +
+          '<p class="locked-note">'+LOCK_ICON+(stage.lockedNote||'Cette étape n’est pas encore ouverte.')+'</p>';
       } else {
         bodyHtml = adminNote + '<div class="body">' + (stage.openHtml || stage.open.map(function(p){return '<p>'+p+'</p>';}).join('')) + '</div>';
         if (status === "open" && stage.callout){
