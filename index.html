@@ -536,12 +536,8 @@
   function logCandidateIdentification(first, last){
     if (!SHEET_LOG_URL) return;
     try{
-      fetch(SHEET_LOG_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({ first: first, last: last })
-      });
+      var url = SHEET_LOG_URL + '?first=' + encodeURIComponent(first) + '&last=' + encodeURIComponent(last);
+      fetch(url, { method: 'GET', mode: 'no-cors' });
     }catch(e){}
   }
   var ADMIN_CODE = 'zoi2026';
