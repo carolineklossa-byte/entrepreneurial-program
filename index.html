@@ -167,6 +167,9 @@
 
   /* ---------- AI Case Study content ---------- */
   .card .body .case-intro p{font-size:14.5px;line-height:1.6;color:var(--grey-mid);margin:0 0 12px;}
+  .card .body .intro-part{border-top:1px solid var(--line);padding-top:20px;margin-top:24px;}
+  .card .body .intro-part:first-child{border-top:none;padding-top:0;margin-top:0;}
+  .card .body .intro-part h5{margin-top:0;}
   .case-intro p:last-child{margin-bottom:0;}
 
   /* rubriques Growth / Product : grand séparateur éditorial avant chaque groupe de cas */
@@ -174,6 +177,7 @@
   .case-rubric.case-rubric-first{margin-top:0;}
   .case-rubric.rubric-growth{--accent:var(--case1);}
   .case-rubric.rubric-product{--accent:var(--case3);}
+  .case-rubric.rubric-livrables{--accent:var(--case2);}
   .card .body .case-rubric .case-kicker{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500;font-size:27px;letter-spacing:0;text-transform:none;color:var(--accent);margin:0 0 12px;}
   .case-rubric .case-kicker::after{content:"";display:block;width:46px;height:3px;background:var(--accent);margin-top:12px;border-radius:2px;}
 
@@ -367,69 +371,89 @@
     },
     { key:"r2", num:"02", label:"Round 2", title:"AI Case Study",
       dates:"Ouverture&nbsp;: dès réception et validation de votre réponse au Round 1",
-      open:["Une problématique réelle de Zoī, à résoudre à l’aide de l’IA, jusqu’à un prototype fonctionnel. Vous finaliserez et présenterez votre solution le jour du Pitch Day."],
+      open:["Une problématique réelle de Zoī, à résoudre à l’aide de l’IA, jusqu’à un prototype fonctionnel. Vous préparerez votre solution en amont, puis la finaliserez et la présenterez le jour du Pitch Day."],
       openHtml: (
-        '<div class="case-intro">' +
-          '<p>Une problématique réelle de Zoī, à résoudre à l’aide de l’IA, jusqu’à un prototype fonctionnel. Vous finaliserez et présenterez votre solution le jour du Pitch Day.</p>' +
-          '<p>Deux rubriques vous sont proposées&nbsp;: Growth, qui comprend deux cas, et Product, qui en comprend un. Vous n’en traitez qu’un seul, celui qui correspond le mieux à votre profil.</p>' +
-          '<p>Nous ne cherchons pas à voir si vous savez produire du contenu avec l’IA. Nous regardons si vous choisissez le bon problème, si vous comprenez un business de l’extérieur, et si vous construisez quelque chose qui fonctionne. Nous ne vous transmettons aucune donnée interne&nbsp;: toutes les informations dont vous avez besoin sont publiques, et cette recherche fait partie de l’exercice.</p>' +
-        '</div>' +
-        '<div class="case-dark">' +
-          '<p><strong>Avant de choisir votre cas</strong>, prenez le temps de comprendre Zoī en profondeur&nbsp;: ce que nous faisons, le produit que nous vendons réellement, à qui nous nous adressons, à quel prix, et ce qui se joue entre l’intérêt et l’achat. Notre positionnement, nos offres et nos prix sont publics&nbsp;: le travail attendu est celui d’une vraie enquête, pas d’une lecture rapide de la page d’accueil.</p>' +
-          '<p style="margin-top:8px">Vous n’avez pas nos données&nbsp;: posez des hypothèses et dites-le clairement. Une hypothèse assumée vaut mieux qu’un chiffre inventé.</p>' +
+        '<div class="case-sub intro-part">' +
+          '<h5>L’exercice</h5>' +
+          '<p>Nous vous proposons de travailler sur une problématique réelle de Zoī à résoudre à l’aide de l’IA, jusqu’à la création d’un prototype fonctionnel.</p>' +
+          '<p>Vous préparerez votre solution en amont, puis la finaliserez et la présenterez le jour du Pitch Day.</p>' +
+          '<p>Deux rubriques vous sont proposées&nbsp;: Growth et Product. Vous n’en traitez qu’une seule.</p>' +
         '</div>' +
 
-        '<div class="case-rubric case-rubric-first rubric-growth">' +
+        '<div class="case-sub intro-part">' +
+          '<h5>Ce que nous cherchons à voir</h5>' +
+          '<p>L’objectif n’est pas de tester votre capacité à produire du contenu avec l’IA. Nous voulons comprendre&nbsp;:</p>' +
+          '<ul>' +
+            '<li>comment vous analysez un business depuis l’extérieur&nbsp;;</li>' +
+            '<li>comment vous identifiez un problème qui mérite réellement d’être résolu&nbsp;;</li>' +
+            '<li>comment vous utilisez l’IA pour aller plus loin, plus vite ou différemment&nbsp;;</li>' +
+            '<li>et surtout, si vous êtes capable de construire quelque chose de concret et convaincant.</li>' +
+          '</ul>' +
+        '</div>' +
+
+        '<div class="case-sub intro-part">' +
+          '<h5>Les informations dont vous disposez</h5>' +
+          '<p>Nous ne vous transmettons volontairement aucune donnée interne, persona, funnel, métrique ou stratégie Zoī.</p>' +
+          '<p>Toutes les informations dont vous avez besoin sont publiques. Votre manière de rechercher, comprendre et interpréter Zoī fait partie intégrante de l’exercice.</p>' +
+        '</div>' +
+
+        '<div class="case-sub intro-part">' +
+          '<h5>Ce que nous attendons&nbsp;: un prototype à apporter au Pitch Day</h5>' +
+          '<p>Ne décrivez pas simplement une idée&nbsp;: construisez-la. Votre prototype doit nous permettre de comprendre ou, idéalement, d’expérimenter votre solution.</p>' +
+          '<p>Il peut prendre la forme d’un&nbsp;:</p>' +
+          '<ul>' +
+            '<li>agent ou conseiller IA&nbsp;;</li>' +
+            '<li>parcours interactif&nbsp;;</li>' +
+            '<li>landing page personnalisée&nbsp;;</li>' +
+            '<li>système de prospection&nbsp;;</li>' +
+            '<li>moteur de personnalisation&nbsp;;</li>' +
+            '<li>workflow automatisé&nbsp;;</li>' +
+            '<li>expérience de qualification&nbsp;;</li>' +
+            '<li>fonctionnalité produit&nbsp;;</li>' +
+            '<li>ou toute autre forme qui vous semble pertinente.</li>' +
+          '</ul>' +
+          '<p>Vous êtes libre d’utiliser les outils de votre choix&nbsp;: ChatGPT, Claude, Gemini, Lovable, Cursor, Replit, Figma, Make, n8n, etc.</p>' +
+          '<p>Il n’est pas nécessaire de savoir coder. En revanche, nous voulons voir quelque chose qui existe réellement, même sous une forme simple.</p>' +
+        '</div>' +
+
+        '<div class="case-rubric rubric-growth">' +
           '<p class="case-kicker">Growth</p>' +
-          '<div class="case-intro"><p>Deux cas composent cette rubrique. Le cas 1 porte sur l’acquisition et la conversion de nos clients particuliers. Le cas 2 s’adresse aux profils plus commerciaux et porte sur la prospection B2B.</p></div>' +
         '</div>' +
 
         '<div class="case-block case-1">' +
           '<div class="case-heading">' +
             '<span class="case-num">01</span>' +
-            '<div class="case-heading-text"><p class="case-mini">Cas 1 · Growth</p><h4>Acquisition &amp; conversion</h4></div>' +
+            '<div class="case-heading-text"><p class="case-mini">Option 1</p><h4>Growth</h4></div>' +
           '</div>' +
-          '<div class="case-quote"><span class="case-label">La demande</span><p>À partir des seules informations publiques disponibles sur Zoī, identifiez un public que nous pourrions mieux attirer ou mieux convertir. Concevez ensuite une expérience IA qui augmente ses chances de devenir client à n’importe quelle étape entre la découverte et la réservation, et prototypez-la.</p></div>' +
-          '<p class="case-questions-label">Questions pour vous orienter</p>' +
-          '<div class="case-sub"><h5>Le client</h5><ul>' +
-            '<li>Quel public ciblez-vous&nbsp;?</li>' +
-            '<li>Pourquoi ce public est-il intéressant pour Zoī&nbsp;?</li>' +
-            '<li>Quel déclencheur peut l’amener à nous considérer&nbsp;?</li>' +
-            '<li>Quelles sont les 3 à 5 objections entre lui et l’achat&nbsp;?</li>' +
-            '<li>Qu’avez-vous appris sur Zoī depuis l’extérieur&nbsp;?</li>' +
+          '<div class="case-quote"><span class="case-label">La question</span>' +
+            '<p>À partir uniquement de ce que vous pouvez comprendre de Zoī depuis l’extérieur, identifiez une audience que Zoī pourrait mieux attirer ou convertir, puis construisez une expérience utilisant l’IA qui augmenterait significativement sa probabilité de devenir cliente de Zoī.</p>' +
+            '<p style="margin-top:10px">Vous pouvez intervenir à n’importe quel moment du parcours, entre&nbsp;: «&nbsp;Je n’ai jamais entendu parler de Zoī&nbsp;» → «&nbsp;J’ai réservé mon check-up.&nbsp;»</p>' +
+          '</div>' +
+          '<p class="case-questions-label">Quelques questions pour vous aider à réfléchir</p>' +
+          '<div class="case-sub"><p>Vous n’avez pas besoin d’y répondre une par une. Elles sont là pour vous aider à structurer votre réflexion.</p></div>' +
+          '<div class="case-sub"><h5>Comprendre la cible</h5><ul>' +
+            '<li>Quelle audience avez-vous choisie&nbsp;?</li>' +
+            '<li>Pourquoi vous semble-t-elle particulièrement intéressante pour Zoī&nbsp;?</li>' +
+            '<li>Quel événement, besoin, désir ou inquiétude pourrait l’amener à considérer Zoī&nbsp;?</li>' +
+            '<li>Quelles sont les principales objections ou questions qui pourraient l’empêcher de réserver&nbsp;?</li>' +
           '</ul></div>' +
-          '<div class="case-sub"><h5>Où intervenir</h5><ul>' +
-            '<li>À quel moment du parcours intervenez-vous&nbsp;?</li>' +
-            '<li>Pourquoi ce point plutôt qu’un autre&nbsp;?</li>' +
-            '<li>Qu’est-ce que l’IA permet ici, qu’on ne pourrait pas faire à la main&nbsp;?</li>' +
+          '<div class="case-sub"><h5>Identifier le problème</h5><ul>' +
+            '<li>À quel endroit du parcours client voyez-vous la plus grande opportunité&nbsp;?</li>' +
+            '<li>Pourquoi ce moment vous semble-t-il particulièrement important&nbsp;?</li>' +
+            '<li>Qu’est-ce que l’IA permettrait de faire ici qui serait difficile, coûteux ou impossible à faire manuellement&nbsp;?</li>' +
           '</ul></div>' +
-          '<div class="case-sub"><h5>Le prototype</h5>' +
-            '<p>Ne décrivez pas seulement le concept&nbsp;: produisez quelque chose d’utilisable. Cela peut être un conseiller IA, une landing page personnalisée, un système de prospection, un moteur de personnalisation, une expérience de qualification, ou toute autre forme qui vous semble juste.</p>' +
-            '<p>Faites-le tourner sur trois profils très différents. Les résultats doivent être nettement différents d’un profil à l’autre&nbsp;: c’est ce qui distingue un système adaptatif d’un chatbot.</p>' +
-          '</div>' +
-          '<div class="case-profiles">' +
-            '<span class="profile-eyebrow">Trois profils</span>' +
-            '<div class="profile"><h6>38 ans, entrepreneur</h6><p>Obsédé par la performance.</p></div>' +
-            '<div class="profile"><h6>52 ans, cadre</h6><p>Inquiet&nbsp;: son père a fait une crise cardiaque.</p></div>' +
-            '<div class="profile"><h6>43 ans, en bonne santé</h6><p>Se sent bien, mais veut un bilan complet.</p></div>' +
-          '</div>' +
-          '<div class="case-sub"><h5>La mesure</h5><ul>' +
-            '<li>Quelle métrique principale votre solution doit-elle faire bouger&nbsp;?</li>' +
-            '<li>Que mesurez-vous pendant les 30 premiers jours pour savoir si votre hypothèse est juste&nbsp;?</li>' +
+          '<div class="case-sub"><h5>Construire la solution</h5><ul>' +
+            '<li>Que vit concrètement le prospect&nbsp;?</li>' +
+            '<li>Qu’est-ce qui est personnalisé&nbsp;?</li>' +
+            '<li>Sur quelles informations cette personnalisation repose-t-elle&nbsp;?</li>' +
+            '<li>Votre expérience serait-elle réellement différente pour plusieurs profils de prospects&nbsp;?</li>' +
+            '<li>Qu’est-ce qui doit rester humain&nbsp;?</li>' +
           '</ul></div>' +
-        '</div>' +
-
-        '<div class="case-block case-2">' +
-          '<div class="case-heading">' +
-            '<span class="case-num">02</span>' +
-            '<div class="case-heading-text"><p class="case-mini">Cas 2 · Growth</p><h4>Prospection B2B</h4></div>' +
-          '</div>' +
-          '<div class="case-quote"><span class="case-label">La demande</span><p>Vous rejoignez l’équipe commerciale, sans CRM ni liste de prospects. À partir d’informations publiques et avec l’IA, identifiez 20 clients B2B potentiels et construisez le système qui permet de les trouver.</p></div>' +
-          '<p class="case-questions-label">Questions pour vous orienter</p>' +
-          '<div class="case-row"><strong>Le marché</strong><p>Expliquez pourquoi ce marché, pourquoi maintenant, et quel signal rend un prospect pertinent.</p></div>' +
-          '<div class="case-row"><strong>La recherche</strong><p>Précisez les données publiques utilisées, la façon dont vous classez les prospects, et les cinq premiers à contacter.</p></div>' +
-          '<div class="case-row"><strong>Les messages</strong><p>Montrez trois messages générés. Dites ce qui est réellement personnalisé, ce qui reste un template, et où la personnalisation devient contre-productive.</p></div>' +
-          '<div class="case-row"><strong>L’échelle</strong><p>Expliquez comment passer de 20 à 2&nbsp;000 prospects&nbsp;: ce qui reste humain, ce qui s’automatise.</p></div>' +
+          '<div class="case-sub"><h5>Mesurer l’impact</h5><ul>' +
+            '<li>Quelle métrique principale votre solution devrait-elle améliorer&nbsp;?</li>' +
+            '<li>Comment sauriez-vous, après 30 jours, si votre hypothèse était bonne&nbsp;?</li>' +
+            '<li>Quel serait le prochain test à lancer&nbsp;?</li>' +
+          '</ul></div>' +
         '</div>' +
 
         '<div class="case-rubric rubric-product">' +
@@ -438,56 +462,75 @@
 
         '<div class="case-block case-3">' +
           '<div class="case-heading">' +
-            '<span class="case-num">03</span>' +
-            '<div class="case-heading-text"><p class="case-mini">Cas 3 · Product</p><h4>Adhésion au protocole</h4></div>' +
+            '<span class="case-num">02</span>' +
+            '<div class="case-heading-text"><p class="case-mini">Option 2</p><h4>Product</h4></div>' +
           '</div>' +
-          '<div class="case-sub"><h5>La situation</h5><p>Un membre vient de terminer son bilan de santé. Son médecin a identifié dix actions à mener sur l’année&nbsp;: sport, nutrition, compléments, sommeil, récupération. Le membre comprend ces recommandations, mais son temps, sa motivation et son attention sont limités.</p></div>' +
-          '<div class="case-quote"><span class="case-label">La demande</span><p>Concevez une expérience IA, dans l’app Zoī, qui aide ce membre à appliquer son protocole. L’objectif n’est pas de lui montrer plus d’informations santé, mais d’augmenter les chances qu’il change réellement de comportement.</p></div>' +
-          '<div class="case-dark"><p>L’IA ne modifie jamais la recommandation médicale&nbsp;: celle-ci vient du médecin. Elle décide seulement du comment, du quand et de l’ordre.</p></div>' +
-          '<p class="case-questions-label">Questions pour vous orienter</p>' +
-          '<div class="case-sub"><h5>Le problème</h5><ul>' +
-            '<li>Pourquoi les gens n’arrivent-ils pas à appliquer les recommandations de santé&nbsp;?</li>' +
-            '<li>Quelle partie de ce problème appartient à Zoī, et laquelle ne lui appartient pas&nbsp;?</li>' +
+          '<div class="case-quote"><span class="case-label">La question</span>' +
+            '<p>Un médecin Zoī remet à un membre dix recommandations destinées à améliorer sa santé. Construisez une expérience utilisant l’IA qui augmente significativement la probabilité que ce membre les mette réellement en pratique.</p>' +
+            '<p style="margin-top:10px">Le sujet n’est donc pas de produire davantage d’informations médicales. Le sujet est de résoudre le passage entre&nbsp;: «&nbsp;Je sais ce que je devrais faire&nbsp;» → «&nbsp;Je le fais réellement.&nbsp;»</p>' +
+          '</div>' +
+          '<div class="case-sub"><p>Pour les besoins de l’exercice, vous pouvez imaginer que le médecin a recommandé&nbsp;:</p></div>' +
+          '<div class="case-recos">' +
+            '<div class="case-reco"><span>01</span>3 séances de renforcement musculaire par semaine</div>' +
+            '<div class="case-reco"><span>02</span>2 séances de Zone 2 par semaine</div>' +
+            '<div class="case-reco"><span>03</span>8&nbsp;000 pas par jour</div>' +
+            '<div class="case-reco"><span>04</span>Se coucher avant 23&nbsp;h</div>' +
+            '<div class="case-reco"><span>05</span>Augmenter les apports en protéines</div>' +
+            '<div class="case-reco"><span>06</span>Réduire la consommation d’alcool</div>' +
+            '<div class="case-reco"><span>07</span>Prendre du magnésium le soir</div>' +
+            '<div class="case-reco"><span>08</span>Prendre de la vitamine D le matin</div>' +
+            '<div class="case-reco"><span>09</span>10 minutes de gestion du stress par jour</div>' +
+            '<div class="case-reco"><span>10</span>Refaire un DEXA dans six mois</div>' +
+          '</div>' +
+          '<p class="case-questions-label">Quelques questions pour vous aider à réfléchir</p>' +
+          '<div class="case-sub"><p>Vous n’avez pas besoin d’y répondre une par une. Elles sont là pour vous aider à structurer votre réflexion.</p></div>' +
+          '<div class="case-sub"><h5>Comprendre le problème</h5><ul>' +
+            '<li>Pourquoi les gens n’appliquent-ils pas les recommandations qu’ils comprennent pourtant&nbsp;?</li>' +
+            '<li>Quel problème précis choisissez-vous de résoudre&nbsp;?</li>' +
+            '<li>Est-ce un problème de motivation, de temps, de priorisation, de compréhension, de friction, d’habitude ou autre&nbsp;?</li>' +
           '</ul></div>' +
-          '<div class="case-sub"><h5>Le rôle de l’IA</h5><ul>' +
-            '<li>Que doit-elle savoir sur le membre&nbsp;?</li>' +
-            '<li>Que doit-elle décider&nbsp;?</li>' +
+          '<div class="case-sub"><h5>Définir le rôle de l’IA</h5><ul>' +
+            '<li>Que doit savoir l’IA sur le membre&nbsp;?</li>' +
+            '<li>Que peut-elle décider&nbsp;?</li>' +
             '<li>Que ne doit-elle jamais décider&nbsp;?</li>' +
+            '<li>Que doit rester sous la responsabilité du médecin&nbsp;?</li>' +
           '</ul></div>' +
-          '<div class="case-sub"><h5>Les dix recommandations</h5>' +
-            '<div class="case-recos">' +
-              '<div class="case-reco"><span>01</span>Renforcement musculaire, 3×/semaine</div>' +
-              '<div class="case-reco"><span>02</span>Exercice en zone 2, 2×/semaine</div>' +
-              '<div class="case-reco"><span>03</span>8&nbsp;000 pas par jour</div>' +
-              '<div class="case-reco"><span>04</span>Coucher avant 23&nbsp;h</div>' +
-              '<div class="case-reco"><span>05</span>Augmenter l’apport en protéines</div>' +
-              '<div class="case-reco"><span>06</span>Réduire l’alcool</div>' +
-              '<div class="case-reco"><span>07</span>Magnésium chaque soir</div>' +
-              '<div class="case-reco"><span>08</span>Vitamine D chaque matin</div>' +
-              '<div class="case-reco"><span>09</span>10 min de gestion du stress par jour</div>' +
-              '<div class="case-reco"><span>10</span>Refaire un DEXA scan dans 6 mois</div>' +
-            '</div>' +
-          '</div>' +
-          '<div class="case-sub"><h5>Trois moments</h5><p>Montrez ce que votre produit affiche à ces trois moments.</p>' +
-            '<div class="case-moments">' +
-              '<div class="case-moment"><strong>Lundi matin</strong><p>Que voit le membre&nbsp;?</p></div>' +
-              '<div class="case-moment"><strong>Mardi matin</strong><p>Lundi soir, il n’a fait qu’une seule des actions recommandées. Que voit-il&nbsp;?</p></div>' +
-              '<div class="case-moment"><strong>Mercredi</strong><p>Il écrit&nbsp;: «&nbsp;Je pars à New York demain, j’ai des réunions de 8&nbsp;h à 22&nbsp;h.&nbsp;» Que se passe-t-il&nbsp;?</p></div>' +
-            '</div>' +
-          '</div>' +
-          '<div class="case-dark">' +
-            '<p><strong>La contrainte</strong>&nbsp;: le protocole compte dix actions. Votre interface n’en affiche que trois par jour.</p>' +
-            '<p style="margin-top:8px">En effet, dès qu’on affiche tout, on ne décide rien. Le travail attendu est la décision, pas la mise en page.</p>' +
-          '</div>' +
-          '<p class="case-questions-label">Ce que cette contrainte vous oblige à préciser</p>' +
-          '<div class="case-sub"><ul>' +
-            '<li>Quels critères le système utilise-t-il pour choisir ces trois actions, et dans quel ordre de priorité&nbsp;? Par exemple&nbsp;: priorité médicale, impact attendu, effort demandé, moment de la journée, adhérence passée, contexte du jour.</li>' +
-            '<li>Que devient le reste du protocole&nbsp;? Reporté, invisible, consultable à la demande&nbsp;?</li>' +
-            '<li>Qu’est-ce qui déclenche un changement de sélection d’un jour sur l’autre&nbsp;?</li>' +
+          '<div class="case-sub"><h5>Créer l’expérience</h5><ul>' +
+            '<li>Le membre a dix choses qu’il pourrait faire aujourd’hui. Si votre interface ne peut lui en montrer que trois, lesquelles choisissez-vous&nbsp;?</li>' +
+            '<li>Comment le système décide-t-il quoi montrer en premier&nbsp;?</li>' +
+            '<li>Comment l’expérience évolue-t-elle selon le comportement réel du membre&nbsp;?</li>' +
           '</ul></div>' +
+          '<div class="case-sub"><h5>Imaginez par exemple</h5></div>' +
+          '<div class="case-moments">' +
+            '<div class="case-moment"><strong>Lundi matin</strong><p>Que voit le membre&nbsp;?</p></div>' +
+            '<div class="case-moment"><strong>Mardi</strong><p>Lundi soir, il n’a réalisé qu’une seule action. Que se passe-t-il mardi&nbsp;?</p></div>' +
+            '<div class="case-moment"><strong>Mercredi</strong><p>Il indique&nbsp;: «&nbsp;Je pars demain à New York et j’ai des réunions de 8&nbsp;h à 22&nbsp;h.&nbsp;» Comment votre produit s’adapte-t-il&nbsp;?</p></div>' +
+          '</div>' +
+          '<div class="case-sub"><h5>Mesurer l’impact</h5><ul>' +
+            '<li>Comment définissez-vous le succès&nbsp;?</li>' +
+            '<li>Quelle métrique voudriez-vous améliorer&nbsp;?</li>' +
+            '<li>Comment sauriez-vous si votre produit crée réellement un changement de comportement&nbsp;?</li>' +
+          '</ul></div>' +
+        '</div>' +
+
+        '<div class="case-rubric rubric-livrables">' +
+          '<p class="case-kicker">Livrables</p>' +
+          '<div class="case-intro"><p>Ce que vous apportez le jour du Pitch Day.</p></div>' +
+        '</div>' +
+
+        '<div class="case-sub">' +
+          '<h5>1. Le prototype</h5>' +
+          '<p>La chose elle-même. Prototype, agent, page interactive, workflow, campagne, système, expérience produit, etc. Nous voulons pouvoir comprendre rapidement ce que vous avez construit et comment cela fonctionne.</p>' +
+          '<h5>2. Une présentation de 5 slides / 5 pages maximum</h5>' +
+          '<p>Structure recommandée&nbsp;: Problème → Insight → Solution → Impact attendu → Prochaine expérimentation. Nous privilégions la clarté à la quantité.</p>' +
+        '</div>' +
+
+        '<div class="case-dark">' +
+          '<p><strong>Ce que nous évaluerons</strong>&nbsp;: votre capacité à comprendre, choisir, construire, tester et juger.</p>' +
+          '<p style="margin-top:8px">La sophistication technique n’est pas une fin en soi. Un prototype simple qui résout un excellent problème nous intéressera davantage qu’un système complexe qui ne répond à aucun besoin réel.</p>' +
         '</div>'
       ),
-      lockedDesc:"Une problématique réelle de Zoī, à résoudre à l’aide de l’IA, jusqu’à un prototype fonctionnel. Vous finaliserez et présenterez votre solution le jour du Pitch Day.",
+      lockedDesc:"Une problématique réelle de Zoī, à résoudre à l’aide de l’IA, jusqu’à un prototype fonctionnel. Vous préparerez votre solution en amont, puis la finaliserez et la présenterez le jour du Pitch Day.",
       lockedNote:"Cette étape se débloque dès que vous passez à l’étape suivante du process. Vous serez prévenu·e par e-mail dès qu’elle s’ouvre pour vous."
     },
     { key:"r3", num:"03", label:"Round 3", title:"Marketing Pitch",
@@ -496,6 +539,7 @@
         "À partir de la solution que vous avez construite au Round 2, rédigez l’e-mail marketing de votre solution, celui que vous nous enverriez pour la vendre.",
         "C’est ce pitch qui départage les candidats et détermine les 15 finalistes qui accèdent au Round 4."
       ],
+      callout:"<strong>Bonus&nbsp;:</strong> si le seul envoi de cet e-mail suffit à susciter l’intérêt réel d’un membre de l’équipe Zoī, sans qu’il ou elle sache qu’il s’agit d’un exercice de candidature (parce qu’il ressemble à un vrai produit), ce point compte en bonus dans votre évaluation.",
       emailNote:"<p>Envoyez votre réponse par e-mail à <strong>caroline.klossa@zoi.com</strong>, avec pour objet votre prénom, votre nom et « Round 3 Marketing Pitch ».</p>",
       lockedDesc:"L’e-mail marketing de votre solution, celui que vous nous enverriez pour nous la vendre. C’est ce pitch qui départage les candidats et détermine les 15 finalistes.",
       lockedNote:"Cette étape est à rendre avant le 15 septembre 2026."
